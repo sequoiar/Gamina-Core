@@ -14,8 +14,6 @@ Also do:
 to get the latest changes.
 
 There is a google group gamina for discussion of users of it:
-	https://groups.google.com/forum/?hl=en#!forum/gamina
-but that you should get from notes from the npm.
- 
+	http://groups.google.com/group/gamina?hl=en?hl=en
 
- More at www.gamina.org
+More at www.gamina.org 
