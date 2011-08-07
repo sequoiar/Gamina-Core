@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gamina_gaminacore/!svn/ver/1/ZCore/src/de/dev_lab/logging/publisher
+END
+IComplexPublisher.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/gamina_gaminacore/!svn/ver/1/ZCore/src/de/dev_lab/logging/publisher/IComplexPublisher.as
+END
+SOSPublisher.as
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/gamina_gaminacore/!svn/ver/1/ZCore/src/de/dev_lab/logging/publisher/SOSPublisher.as
+END
+IPublisher.as
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gamina_gaminacore/!svn/ver/1/ZCore/src/de/dev_lab/logging/publisher/IPublisher.as
+END
+TextFieldPublisher.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/gamina_gaminacore/!svn/ver/1/ZCore/src/de/dev_lab/logging/publisher/TextFieldPublisher.as
+END
+MultiPublisher.as
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/gamina_gaminacore/!svn/ver/1/ZCore/src/de/dev_lab/logging/publisher/MultiPublisher.as
+END
+TracePublisher.as
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/gamina_gaminacore/!svn/ver/1/ZCore/src/de/dev_lab/logging/publisher/TracePublisher.as
+END

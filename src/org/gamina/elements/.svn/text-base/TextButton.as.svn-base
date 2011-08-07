@@ -1,0 +1,37 @@
+package com.gamina.elements {
+   import com.gamina.api.IWidget;
+   import com.gamina.api.IWidgetElement;
+   import flash.utils.getQualifiedClassName;
+
+	public class TextButton extends Button implements IWidgetElement {
+		public var text : Text;
+
+		public function initTextButton(parent : IWidget, txt : String = 'Blank', locale : String = 'en_US') : TextButton {
+			
+			super.initButtonElement(parent);
+			text = new Text();
+			text.initText(null, txt, locale);
+			addChild(text);
+			layout();
+			return this;
+		}
+
+		protected function layout() : void {
+			var txtMiddle : uint = text.textWidth / 2;
+			var butMiddle : uint = width / 2;
+			text.x = butMiddle - txtMiddle-10;
+
+			var txtHMiddle : uint = text.textHeight / 2;
+			var butHMiddle : uint = height / 2;
+			text.y = txtHMiddle - butHMiddle-3;
+		}
+
+		override public  function get className():String {
+			return getQualifiedClassName(this)+text.text+_colRow.x+'/'+_colRow.y;
+		}
+
+		
+	
+
+	}
+}
