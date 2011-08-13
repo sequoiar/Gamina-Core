@@ -6,6 +6,7 @@ package org.gamina.api.logic {
 
 	
 	/**
+	 * Value transfer object.
 	 * In some case, when it is not the state, you may want to pool VTO. 
 	 * aka DTO, Bean, NameValuePairs, Value Object
 	 */

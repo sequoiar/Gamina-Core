@@ -8,17 +8,22 @@ package org.gamina.api
 	import org.osflash.signals.ISignal;
 
 	// in simple apps, this would be the main sprite, otherwise it's separte from screen
-	// main purpose is to find traits so they can signal to each other
+	/**
+	* Main purpose is to find traits so they can signal to each other
+	*/
 	public interface IMainBus
 	{
 		
-		function init(stage_:Stage):void;
+		function init(stage_:Stage):void;//get a reference
 		function doInit2(evt:Event):void;// on 2nd frame
 		
 		function get stageReference() : Stage;
 		function get resizeSignal() : ISignal;
 
 		function registerTrait(trait:IBasicTrait):void;
+		/**
+		 * If you want to talk to other widgets, you do so via traits
+		 */
 		function getTrait(id:String):IBasicTrait;// you normaly talk trait to trait via signals
 		
 		//advanced 

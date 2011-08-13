@@ -4,6 +4,8 @@ package org.gamina.api.logic
 	import org.gamina.api.IWidget;
 	
 	/**
+	 * The main class of the architecture.
+.
 	 * All functionality is in these granual behaviors. Ex: Resize, Tween, Navigate, State(Model), etc.
 	 * Traits dirrectly manipulate widgets, ie: presenter pattern.
 	 * High granularity of traits is perfered over a trait per widget, this will help w/ re-use.

@@ -5,6 +5,10 @@ package org.gamina.api
 	// a widget could just be a background
 	// you can only talk to a widget via it's trait(s)
 	// you normaly do UI first (ie widgets w/o traits) to get the look
+	/**
+	 * Widget is a Passive View pattern. The parent screen/scene should have no/minimal code
+	 * The UI is done first, w/o any traits
+	 * */
 	public interface IWidget
 	{
 		

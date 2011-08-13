@@ -3,7 +3,9 @@ package org.gamina.api.logic
 	import org.osflash.signals.ISignal;
 	import org.gamina.api.*;
 	
-	//remote
+	/***
+	 * Remote Service
+	*/
 	public interface IService 
 	{
 		//static function get inst():IService;

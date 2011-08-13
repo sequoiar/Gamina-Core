@@ -16,7 +16,7 @@ package org.gamina.srv
 		protected static var TTYPE:String ='type';
 		protected static var NS:String='org.jWebSocket.plugins.system';
 		
-		public static var _ws:AsWebSock;
+		public static var _ws:WebSock;
 		
 		protected var _signal:Signal;
 		
@@ -27,7 +27,7 @@ package org.gamina.srv
 		
 		public function BaseJWebSSrv(wsDomain:String='localhost',pagehost:String='http://localhost') {
 			_signal = new Signal(VTO);
-			_ws = new AsWebSock();
+			_ws = new WebSock();
 			_ws.asWs_create('localhost', 'http://localhost',onWSCon,onReceived);
 		}
 

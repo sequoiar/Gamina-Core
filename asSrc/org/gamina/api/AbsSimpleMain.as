@@ -13,7 +13,7 @@ package org.gamina.api
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.natives.NativeSignal;
 
-	/*
+	/**
 	A convinience class
 	*/
 	public class AbsSimpleMain extends Sprite

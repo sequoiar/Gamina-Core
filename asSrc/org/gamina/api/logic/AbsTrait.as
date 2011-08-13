@@ -4,6 +4,9 @@ package org.gamina.api.logic
 	import org.gamina.api.IWidget;
 	import flash.utils.*;
 	
+	/**
+	 * A convenience class
+	 */
 	public class AbsTrait 
 	{
 		
