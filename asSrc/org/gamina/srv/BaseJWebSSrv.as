@@ -1,5 +1,7 @@
 package org.gamina.srv
 {
+	import mx.utils.URLUtil;
+	
 	import org.gamina.api.IMainBus;
 	import org.gamina.api.logic.IService;
 	import org.gamina.api.logic.VTO;
@@ -28,6 +30,7 @@ package org.gamina.srv
 		public function BaseJWebSSrv(wsDomain:String='localhost',pagehost:String='http://localhost') {
 			_signal = new Signal(VTO);
 			_ws = new WebSock();
+		
 			_ws.asWs_create('localhost', 'http://localhost',onWSCon,onReceived);
 		}
 

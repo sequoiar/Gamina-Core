@@ -1,4 +1,7 @@
 package org.gamina.srv {
+   
+   import mx.utils.URLUtil;
+   
    import net.gimite.websocket.*;
 
 // https://github.com/puppetMaster3/web-socket-js
@@ -32,7 +35,7 @@ public class WebSock extends WebSocketAs {
 	
 	}*/
 	
-	
+
 	
    protected var msgCallBack:Function;
    protected var onOpenCallBack:Function;
@@ -44,11 +47,11 @@ public class WebSock extends WebSocketAs {
       this.msgCallBack = msgCallBack_;
       this.onOpenCallBack = onOpenCallBack_;
                
-      super.setCallerUrl(callingPage);
-               
-      super.create(inst,protocol+'://'+socketServerUrl+':'+socketPort,[protocol]);   
+      setCallerUrl(callingPage);
+     
+      create(inst,protocol+'://'+socketServerUrl+':'+socketPort,[protocol]);   
       
-      var ws:WebSocketAs =webSockets[inst];
+      var ws:WebSocket =webSockets[inst];
       
       ws.addEventListener("open", onWSocketEvent,false,0,true);
       ws.addEventListener("close", onWSocketEvent,false,0,true);

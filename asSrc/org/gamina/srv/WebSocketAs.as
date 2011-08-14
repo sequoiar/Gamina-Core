@@ -8,6 +8,7 @@ import flash.system.Security;
 import flash.utils.setTimeout;
 
 import mx.utils.URLUtil;
+
 import net.gimite.websocket.*;
 
 /**
@@ -33,6 +34,8 @@ public class WebSocketAs extends Sprite implements IWebSocketLogger{
   }
   
   private function loadDefaultPolicyFile(wsUrl:String):void {
+	if (manualPolicyFileLoaded) return;
+		
     var policyUrl:String = "xmlsocket://" + URLUtil.getServerName(wsUrl) + ":843";
     log("policy file: " + policyUrl);
     Security.loadPolicyFile(policyUrl);
@@ -72,9 +75,9 @@ public class WebSocketAs extends Sprite implements IWebSocketLogger{
       url:String, protocols:Array,
       proxyHost:String = null, proxyPort:int = 0,
       headers:String = null):void {
-    if (!manualPolicyFileLoaded) {
-      loadDefaultPolicyFile(url);
-    }
+	
+	  loadDefaultPolicyFile(url);
+  
     var newSocket:WebSocket = new WebSocket(
         webSocketId, url, protocols, getOrigin(), proxyHost, proxyPort,
         getCookie(url), headers, this);
