@@ -36,7 +36,7 @@ package org.gamina.elements {
 		/**
 		 * Only if you want the simple button(rarely). If using TextButton use initTextButton
 		 */
-		protected function initButtonElement(parent : IWidget) : AButton {
+		public function initButtonElement(parent : IWidget) : AButton {
 			this.x=APanel.PAD;
 			this.y=APanel.PAD;
 			
