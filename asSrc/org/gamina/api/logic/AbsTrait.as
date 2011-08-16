@@ -23,11 +23,15 @@ package org.gamina.api.logic
 			return _bus;
 		}
 	
-	
 		public function get traitId():String
 		{
 			return getQualifiedClassName(this);
 		}
+	
+		public function get traitConcern():String {
+			return "NOT_SET";	
+		}
+	
 	}
 		
 }

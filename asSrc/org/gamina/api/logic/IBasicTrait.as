@@ -15,10 +15,13 @@ package org.gamina.api.logic
 	{
 		function initTrait(wig_:IWidget):IBasicTrait;
 
-		// for bus
+		/**
+		 * If you need to talk to a trait, register it, then get it here, usually via signals
+		 */
 		function get traitId():String;
 		//function get traitType():String;//enum: Nav, State, Layout
 		
+			
 		function get mainBus():IMainBus;
 	
 	}
