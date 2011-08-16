@@ -49,12 +49,12 @@ public class WebSocketAs extends Sprite implements IWebSocketLogger{
   
   public function log(message:String):void {
     if (debug) {
-      trace("WebSocket.__log", encodeURIComponent("[WebSocket] " + message));
+      trace("WebSocketAs.log:",  message);
     }
   }
   
   public function error(message:String):void {
-    trace("WebSocket.__error", encodeURIComponent("[WebSocket] " + message));
+    trace("WebSocketAs.error:",  message);
   }
   
   private function parseEvent(event:WebSocketEvent):Object {
@@ -98,7 +98,7 @@ public class WebSocketAs extends Sprite implements IWebSocketLogger{
     webSocket.close();
   }
   
-  public function receiveEvents():Object {
+  protected function receiveEvents():Object {
     var result:Object = eventQueue;
     eventQueue = [];
     return result;
@@ -122,7 +122,7 @@ public class WebSocketAs extends Sprite implements IWebSocketLogger{
   /**
    * Socket event handler.
    */
-  public function onSocketEvent(event:WebSocketEvent):void {
+  protected function onSocketEvent(event:WebSocketEvent):void {
     var eventObj:Object = parseEvent(event);
     eventQueue.push(eventObj);
     processEvents();
@@ -132,7 +132,7 @@ public class WebSocketAs extends Sprite implements IWebSocketLogger{
    * Process our event queue.  If server is unresponsive, set
    * a timeout and try again.
    */
-  public function processEvents():void {
+  protected function processEvents():void {
     if (eventQueue.length == 0) return;
     setTimeout(processEvents, 500);
   }//()  

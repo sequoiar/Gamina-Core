@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="ant" basedir=".">
+<property file="build.properties" /><!-- set sdk and version -->
+<echo message="Using SDK version: ${FLEX_HOME}" />
+<!-- do not change next 3 lines, it adds needed tasks to ant -->
+<property name="FLEXTASKS" value="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+<taskdef resource="flexTasks.tasks" classpath="${FLEXTASKS}"/>
+ <!-- obfuscate task -->
+<taskdef name="protect" classpath="secureSWF.jar"
+   			            classname="secureSWF.ant.ProtectTask" />
+<!-- make sure you edit flex_sdk's flex config.xml, ex to comment out the osmf lines -->
+
+
+
+<target name="Browser" depends="code10">
+ <echo message="BrowserVid"/>
+ <property name="PATH_B" location="Browser"/>
+ <delete dir="${PATH_B}/bin" failOnError="true" includeEmptyDirs="true"/>
+ <mkdir dir="${PATH_B}/bin" />
+ <copy file="codeEx10/bin/code.swc" tofile="${PATH_B}/libs/code.swc"/>
+ <mxmlc      file="${PATH_B}/src/VidChat.as" 
+			output="${PATH_B}/bin/VidChat.swf"
+		 	debug="false"  
+		 	incremental="false"
+		 	strict="true"
+		 	accessible="false"
+			fork="true"
+			
+	        static-link-runtime-shared-libraries="true">
+		   
+           <optimize>true</optimize>
+		
+           <target-player>10.2</target-player>
+           <raw-metadata></raw-metadata>
+		   
+		   <library-path dir="${PATH_B}/libs" append="true" >
+                <include name="*.swc" />
+            </library-path>
+        </mxmlc>
+		
+	   <protect 
+			  preset="best_size" 
+			  keyFilePath="key.data"
+			  generateMappingFile="True"
+			  removeLinesNumbers="True"
+			  removeDebugInfo="True"
+			  superCompression="True"
+			  postfix="P"
+			  >
+	 <fileset dir="${PATH_B}/bin" includes="*.swf" />
+     </protect>
+</target>
+
+
+
+<target name="code10" >
+	<property name="PATH_C10" location="codeEx10"/>
+	<delete  dir="${PATH_C10}/bin" failOnError="true" includeEmptyDirs="true"/>
+	<mkdir   dir="${PATH_C10}/bin" />
+	<copy file="ZLibs/gamina.swc" tofile="${PATH_C10}/libs/gamina.swc"/>
+	<compc
+		output="${PATH_C10}/bin/code.swc"
+	 	debug="false" 
+	 	incremental="false"
+	 	strict="true"
+	 	accessible="false"
+		fork="true"
+		
+        static-link-runtime-shared-libraries="true">
+        <optimize>true</optimize>
+		<raw-metadata></raw-metadata>
+		
+       <include-sources  dir="${PATH_C10}/src" includes="**/*.as"/>
+       <source-path path-element="${PATH_C10}/src"/>
+       
+	   <library-path dir="${PATH_C10}/libs" append="true">
+              <include name="*.swc"/>
+       </library-path>
+	</compc>
+</target>
+	
+
+<target name="gamina" >
+	<echo message="Building core${basedir}/ZLibs/ZCore" />
+	<compc output="ZLibs/gamina.swc"
+	 	debug="false" 
+	 	incremental="false"
+	 	strict="true"
+	 	accessible="false"
+		fork="true"
+		
+		static-link-runtime-shared-libraries="false">
+	    <optimize>true</optimize>
+		<raw-metadata></raw-metadata>
+	   
+       <include-sources  dir="ZLibs/ZCore/src" includes="**/*.as"/>
+       <source-path path-element="ZLibs/ZCore/src/"/>
+	   
+	   <include-file name="but.svg" path="ZLibs/ZCore/src/com/gamina/elements/but.svg"/>
+
+	   <external-library-path dir="ZLibs/ZCore/extLibs" append="true">
+            <include name="*.swc"/>
+        </external-library-path>
+	</compc>
+</target>
+
+<target name="docs" depends="gamina">
+       <delete dir="ZLibs/docs" failOnError="true" includeEmptyDirs="true"/>
+		<mkdir dir="ZLibs/docs"/>
+        <asdoc output="ZLibs/docs" lenient="true" failonerror="false" fork="true">
+            <doc-sources path-element="ZLibs/ZCore/src" />
+            <source-path path-element="ZLibs/ZCore/src/"/>
+            <library-path dir="ZLibs/ZCore/extLibs" append="true">
+                <include name="*.swc"/>
+            </library-path>
+        </asdoc>
+</target>
+
+
+</project>
+	

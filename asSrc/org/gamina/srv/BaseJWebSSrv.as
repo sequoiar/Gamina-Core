@@ -27,11 +27,11 @@ package org.gamina.srv
 		public  var _clientSId:String;
 		
 		
-		public function BaseJWebSSrv(wsDomain:String='localhost',pagehost:String='http://localhost') {
+		public function BaseJWebSSrv(wsDomain:String='localhost', socketPort:uint=8787,pagehost:String='http://localhost') {
 			_signal = new Signal(VTO);
 			_ws = new WebSock();
 		
-			_ws.asWs_create('localhost', 'http://localhost',onWSCon,onReceived);
+			_ws.asWs_create('localhost', socketPort,'http://localhost',onWSCon,onReceived);
 		}
 
 		
