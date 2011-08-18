@@ -1,0 +1,56 @@
+<html>
+<head></head>
+<body>
+<script type="text/javascript" src="lib/Three.js"></script>
+<script type="text/javascript" src="lib/RequestAnimationFrame.js"></script>
+<script type="text/javascript" src="lib/Stats.js"></script>
+<script type="text/javascript" src="lib/signals.js"></script>
+<script type="text/javascript" src="lib/Base.js"></script>
+
+<!-- code -->
+<script src="code/Wig1.js"></script>
+<script src="code/logic/Trait1.js"></script>
+
+<script>
+
+    var camera, scene, renderer,
+    stats;
+
+    var onFrameSignal;
+
+    initScreen();
+
+    function initScreen() {
+        renderer = new THREE.CanvasRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        camera = new THREE.Camera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+        camera.position.z = 1000;
+        scene = new THREE.Scene();
+
+        onFrameSignal = new signals.Signal();
+        var wig1 = new Wig1();
+        wig1.initWig(scene);
+        var t1 = new Trait1();
+        wig1.addWigTrait(t1,onFrameSignal);// trivial to add more traits, advanced to add trait's traitBus
+
+        stats = new Stats();
+        document.body.appendChild( stats.domElement );
+        document.body.appendChild( renderer.domElement );
+
+
+        animate();
+    }
+
+    // notice the widgets rotation is in the widgets trait.
+    function animate() {
+        requestAnimationFrame( animate );//loop
+        stats.update();
+        onFrameSignal.dispatch();
+        renderer.render( scene, camera );
+
+    }
+
+
+</script>
+</body>
+</html>
