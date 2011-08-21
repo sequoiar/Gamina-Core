@@ -1,19 +1,12 @@
 Gamina Core
 ===========
 
-First use this from www.gamina.org, later you can modify it. But please do fork!!
+Forking is encouraged and supported. This code is for advanced users of gamina.org, that want to fork gamina's core libarary under the terms of the license; or to contribue back changes.
 
+If you are new or intermediate you likely want to go to www.gamain.org first to find out about and learn to use gamina first.
 
-To download or use this:
+To use it:
 	npm install gamina
 
-The core file here are only for people that want to fork, to improve the core library only and push back the change, not the examples of using gamina.
-
-Again, a good starting place is, that has the examples:
-	npm install gamina
- 
-Also do:
-	npm update 
-to get the latest changes.
-
+www.gamina.org has some examples, docs info, and has a link to gamina.org's user support google group for anything beyond that - where you can post a questions.
 
