@@ -2,6 +2,7 @@
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
   <includeClasses>
     <classEntry path="org.gamina.api.logic.ITrait"/>
+    <classEntry path="org.gamina.api.logic.IConfigurable"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
